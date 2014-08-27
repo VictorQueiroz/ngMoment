@@ -5,13 +5,13 @@ A module to help you to integrate Moment.js and AngularJS
 
 ### Usage
 ```
-bower install ng-moment
+bower install ng-moment --save-dev
 ```
 ```
 angular
   .module('app', ['ngMoment'])
   
-  .controller('MainCtrl', function ($moment) {
+  .controller('MainCtrl', ['$moment', function ($moment) {
     $scope.someDate = moment().format();
-  });
+  }]);
 ```
