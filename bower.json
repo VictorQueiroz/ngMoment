@@ -1,6 +1,6 @@
 {
   "name": "ngMoment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     "Victor Queiroz <victorcqueirozg@gmail.com>"
   ],
@@ -17,6 +17,8 @@
     "tests"
   ],
   "devDependencies": {
-    "moment": "~2.8.2"
+    "moment": "~2.8.2",
+    "angular": "~1.2.23",
+    "angular-mocks": "~1.2.23"
   }
 }
