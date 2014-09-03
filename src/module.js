@@ -4,6 +4,7 @@
 	angular
 		.module('ngMoment', [
 			'ngMoment/Services',
+			'ngMoment/Filters',
 			'ngMoment/Directives'
 		]);
 })();

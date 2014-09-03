@@ -4,7 +4,7 @@
   "description": "A module to help you to integrate Moment.js and AngularJS.",
   "main": "index.js",
   "scripts": {
-    "test": "karma start --no-single-run --log-level debug"
+    "test": "karma start --no-single-run"
   },
   "author": {
     "name": "Victor Queiroz",
