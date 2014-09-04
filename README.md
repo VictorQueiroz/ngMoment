@@ -9,9 +9,13 @@ bower install ng-moment --save
 ```
 
 ## Usage
-```
+```js
 angular
   .module('app', ['ngMoment'])
+
+  .run(['$moment', function ($moment) {
+		$moment.locale('pt-br');
+  }])
   
   .controller('MainCtrl', ['$moment', function ($moment) {
     $scope.someDate = moment().format();
@@ -19,7 +23,7 @@ angular
 ```
 
 ## Filters
-```
+```js
 <tr ng-repeat="user in users">
 	<td ng-bind="user._id"></td>
 	<td ng-bind="user.name"></td>
