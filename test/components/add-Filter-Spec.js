@@ -17,7 +17,7 @@
 			});
 		});
 
-		describe('filters', function () {
+		describe('filters:', function () {
 			var $filter, $moment;
 
 			beforeEach(inject(function ($injector) {
@@ -27,7 +27,7 @@
 				$moment.locale('en-us');
 			}));
 
-			describe('add', function () {
+			describe('add filter', function () {
 				var addFilter;
 
 				beforeEach(function() {
@@ -35,11 +35,19 @@
 				});
 
 				it('should add months', function () {
-					var date = new Date;
+					var date = $moment();
 
-					date = addFilter(date, 'months').fromNow();
+					date = addFilter(date, 'months');
 
-					expect(date).toBe(true);
+					expect(date.fromNow()).toBe('in a month');
+				});
+
+				it('should add years', function () {
+					var date = $moment();
+
+					date = addFilter(date, 'years', 3);
+
+					expect(date.fromNow()).toBe('in 3 years');
 				});
 			});
 		});

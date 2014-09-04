@@ -8,7 +8,7 @@
 			var isMoment = $moment.isMoment;
 
 			return function (input, type, times) {
-				if(!isMoment) { return input; }
+				if(!isMoment(input)) { return input; }
 				if(!type) { type = 'days'; }
 				if(!times) { times = 1; }
 

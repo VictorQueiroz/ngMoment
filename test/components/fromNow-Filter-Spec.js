@@ -45,6 +45,12 @@
 
 					expect(date).toBe('in 10 months');
 				});
+
+				it('should deal well with no-$moment instances', function () {
+					var date = momentFromNowFilter(new Date);
+
+					expect(date).toBe('a few seconds ago');
+				});
 			});
 		});
 	});
