@@ -23,7 +23,7 @@ angular
 ```
 
 ## Filters
-```js
+```html
 <tr ng-repeat="user in users">
 	<td ng-bind="user._id"></td>
 	<td ng-bind="user.name"></td>
