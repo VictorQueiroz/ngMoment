@@ -1,6 +1,6 @@
 {
   "name": "ngMoment",
-  "version": "1.0.5",
+  "version": "1.0.51",
   "description": "A module to help you to integrate Moment.js and AngularJS.",
   "main": "index.js",
   "scripts": {
