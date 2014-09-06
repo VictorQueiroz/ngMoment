@@ -3,6 +3,12 @@ ngMoment
 
 A module to help you to integrate Moment.js and AngularJS
 
+## Demos
+[Live example](http://plnkr.co/edit/UMprnLZnuqS0VT49vVy9?p=preview)
+
+## Issues
+Do you have some issue? Let us know: [https://github.com/VictorQueiroz/ngMoment/issues](https://github.com/VictorQueiroz/ngMoment/issues)
+
 ## Installation
 ```
 bower install ng-moment --save
