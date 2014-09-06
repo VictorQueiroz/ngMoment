@@ -7,32 +7,20 @@
 		.filter('moment', ['$moment', function ($moment) {
 			var isMoment = $moment.isMoment;
 
-			return function (input) {
-				/**
-				 * If the actual 'input' it isn't an
-				 * instance of Moment:
-				 */
-				if(!isMoment(input)) {
-					/**
-					 * If it was a Moment instance,
-					 * it will be valid?
-					 */
-					if(!$moment(input).isValid()) {
-						return input; // If not, return the input.
-					} else {
-						/**
-						 * If it was, return the input
-						 * instanciated with Moment constructor
-						 */
-						return $moment(input);
-					}
+			return function (input, format) {
+				if(!format) format = '';
 
-				/**
-				 * If it's already is an instance of Moment
-				 */					
+				var isValid = $moment(input, format).isValid();
+
+				if(!isMoment(input) && !isValid) return input;
+
+				var newInput = $moment(input, format);
+
+				if(isValid) {
+					return newInput;
 				} else {
-					return input; // Returns it
-				};
+					return input;
+				}
 			};
 		}]);
 })();

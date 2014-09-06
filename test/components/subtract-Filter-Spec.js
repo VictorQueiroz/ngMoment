@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var MODULE_NAME = 'ngMoment/Filter/add',
+	var MODULE_NAME = 'ngMoment/Filter/subtract',
 	MODULE_DEPENDENCIES = [
 		'ngMoment/Service'
 	],
@@ -17,37 +17,31 @@
 			});
 		});
 
-		describe('filters:', function () {
+		describe('filters', function () {
 			var $filter, $moment;
 
 			beforeEach(inject(function ($injector) {
 				$filter = $injector.get('$filter');
 				$moment = $injector.get('$moment');
 
-				$moment.locale('en-us');
+				$moment.locale('pt-br');
 			}));
 
-			describe('add filter', function () {
-				var addFilter;
+			describe('momentSubtract', function () {
+				var momentSubtractFilter;
 
 				beforeEach(function() {
-					addFilter = $filter('momentAdd');
+					momentSubtractFilter = $filter('momentSubtract');
 				});
 
-				it('should add months', function () {
-					var date = $moment();
+				it('should subtract 3 days', function () {
+					var date = new Date(),
+					format = 'DD [de] MMMM [de] YYYY',
+					date = $moment(date);
 
-					date = addFilter(date, 'months');
+					date = momentSubtractFilter(date, 'days', 3);
 
-					expect(date.fromNow()).toBe('in a month');
-				});
-
-				it('should add years', function () {
-					var date = $moment();
-
-					date = addFilter(date, 'years', 3);
-
-					expect(date.fromNow()).toBe('in 3 years');
+					expect(date.fromNow()).toBe('3 dias atrás');
 				});
 			});
 		});

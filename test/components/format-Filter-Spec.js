@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var MODULE_NAME = 'ngMoment/Filter/add',
+	var MODULE_NAME = 'ngMoment/Filter/format',
 	MODULE_DEPENDENCIES = [
 		'ngMoment/Service'
 	],
@@ -17,37 +17,31 @@
 			});
 		});
 
-		describe('filters:', function () {
+		describe('filters', function () {
 			var $filter, $moment;
 
 			beforeEach(inject(function ($injector) {
 				$filter = $injector.get('$filter');
 				$moment = $injector.get('$moment');
 
-				$moment.locale('en-us');
+				$moment.locale('pt-br');
 			}));
 
-			describe('add filter', function () {
-				var addFilter;
+			describe('momentFormat', function () {
+				var momentFormatFilter;
 
 				beforeEach(function() {
-					addFilter = $filter('momentAdd');
+					momentFormatFilter = $filter('momentFormat');
 				});
 
-				it('should add months', function () {
-					var date = $moment();
+				it('should format the date', function () {
+					var date = new Date,
+					format = 'DD [de] MMMM [de] YYYY',
+					newDate;
 
-					date = addFilter(date, 'months');
+					newDate = momentFormatFilter(date, format)
 
-					expect(date.fromNow()).toBe('in a month');
-				});
-
-				it('should add years', function () {
-					var date = $moment();
-
-					date = addFilter(date, 'years', 3);
-
-					expect(date.fromNow()).toBe('in 3 years');
+					expect(newDate).toBe($moment(date).format(format));
 				});
 			});
 		});
