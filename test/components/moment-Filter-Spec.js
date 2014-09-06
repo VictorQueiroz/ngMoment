@@ -61,6 +61,15 @@
 
 					expect(date).toBe('this is not a valid date');
 				});
+
+				it('should support formats', function () {
+					var date = '14/03/1996',
+					format = 'DDMMYYYY';
+
+					date = momentFilter(date, format);
+
+					expect(date.isValid()).toBe(true);
+				});
 			});
 		});
 	});
